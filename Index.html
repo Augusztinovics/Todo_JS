@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Js practice, a Todo or Task list maked in html and js">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="./scc/style.css">
+    <script src="./js/todo.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Todo App</h1>
+        <p>Make a list to remember what you need to do</p>
+    </header>
+
+    <!--container for the form and list-->
+    <div class="container">
+
+        <!--new todo make form-->
+        <form>
+            <label for="todoName">What need to be done?</label>
+            <input type="text" name="todoName" id="todoName">
+            <label for="todoDescript">Description of your task</label>
+            <input type="text" name="todoDescript" id="todoDescript">  
+
+            <!--in this div is the substage for the task need add with js-->
+            <div class="substage">
+                <label for="substage">Subtask to be done in this task</label>
+                <input type="text" name="substage" id="substage">
+                <div class="generated"></div>
+            </div>
+            
+                <!--this button add subform for task stage-->
+            <button type="button" id="addStage"><span>+</span>Add</button> 
+                <!--this button create a new task -->
+            <button type="button" id="create">Create</button>
+        </form>
+
+        <!--Place for todo list-->
+     <div class="todoList">
+       <ul>
+       </ul>
+      </div>
+    </div>
+    <footer>
+       <p>Author: Janos Augusztinovics</p>
+    </footer>
+</body>
+
+</html>

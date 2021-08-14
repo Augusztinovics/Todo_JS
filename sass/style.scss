@@ -1,0 +1,212 @@
+/*Variables*/
+$headerColor: #331a00;
+$priBgColor: #fff2e6;
+$secBgColor: #f2f2f2;
+$lightTextColor: #ffffe6;
+$darkTextColor: #1a0900;
+$btnPrimaryColor: #cce6ff;
+$btnSubmitColor: #66ff66;
+
+/*MIXINGS*/
+@mixin block($mt: 0, $mb: 15px, $mx: 15px, $p: 0, $bg: white) {
+  margin: {
+    top: $mt;
+    bottom: $mb;
+    left: $mx;
+    right: $mx;
+  }
+  padding: $p;
+  background-color: $bg;
+}
+
+@mixin button($btnColor, $btnSize) {
+  background-color: $btnColor;
+  border-radius: 5px;
+  color: $darkTextColor;
+  font-size: 1rem;
+  padding: $btnSize;
+  transition: background-color 500ms;
+}
+
+/*RESET*/
+* {
+  margin: 0;
+  padding: 0;
+}
+header,
+div,
+h1,
+footer {
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  max-width: 100%;
+  h1 {
+    margin: 10px;
+  }
+}
+
+button,
+input {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+input {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*GLOBAL STYLE*/
+header {
+  @include block(0, 10px, 0, 30px, $headerColor);
+  h1 {
+    margin-bottom: 0;
+    color: $lightTextColor;
+    font-size: 3rem;
+  }
+  p {
+    margin-top: 0;
+    color: $lightTextColor;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  @include block(0, 0, auto, 30px, $priBgColor);
+}
+
+form {
+  label {
+    display: block;
+    text-align: start;
+  }
+  input[type="text"] {
+    width: 95%;
+    max-width: 1000px;
+    margin-bottom: 20px;
+    padding: 5px;
+  }
+  margin-bottom: 20px;
+
+  input[type="text"]:focus {
+    padding: 10px;
+    background-color: $lightTextColor;
+    transition: padding 300ms;
+  }
+}
+
+.substage {
+  input[type="text"] {
+    display: inline-block;
+    width: 70%;
+    margin-right: 1rem;
+  }
+  width: 75%;
+  display: inline-block;
+}
+
+@media screen and (min-width: 700px) {
+  form {
+    label {
+      display: inline-block;
+      width: 30%;
+    }
+    input[type="text"] {
+      width: 65%;
+    }
+  }
+  .substage {
+    label {
+      width: 40%;
+    }
+    input[type="text"] {
+      width: 40%;
+      margin-right: 3rem;
+    }
+  }
+}
+
+/*BUTTONS*/
+#addStage {
+  @include button($btnPrimaryColor, 0.2rem);
+  margin-bottom: 10px;
+  span {
+    font-weight: bolder;
+  }
+}
+
+#addStage:hover {
+  background-color: darken($color: $btnPrimaryColor, $amount: 10%);
+}
+
+#create {
+  @include button($btnSubmitColor, 0.5rem);
+  width: 50%;
+  margin-left: 25%;
+}
+
+#create:hover {
+  background-color: darken($color: $btnSubmitColor, $amount: 10%);
+}
+
+.delete {
+  @include button(rgb(209, 77, 77), 0.5rem);
+  margin-bottom: 10px;
+}
+
+.delete:hover {
+  background-color: darken($color: rgb(209, 77, 77), $amount: 10%);
+}
+
+/*TODO-LIST STYLE*/
+.todoList {
+  margin-top: 15px;
+  padding-bottom: 25px;
+  border-top: 1px solid $headerColor;
+  border-bottom: 1px solid $headerColor;
+  border-radius: 20px;
+  text-align: center;
+  ul {
+    list-style-type: none;
+    li {
+      margin-top: 25px;
+      border: 1px solid $headerColor;
+      border-radius: 10px;
+      h3 {
+        margin-top: 10px;
+      }
+      p {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      div {
+        display: flex;
+        justify-content: space-evenly;
+        label {
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
+      }
+
+      label {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        progress {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+/*FOOTER*/
+footer {
+  text-align: center;
+  padding: 20px;
+  color: $lightTextColor;
+  background-color: $headerColor;
+}
